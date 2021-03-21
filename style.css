@@ -1,6 +1,10 @@
 body {
 	margin: 0;
 	padding: 0;
+
+}
+
+.piano {
 	display: flex;
 }
 
@@ -13,5 +17,5 @@ body {
 }
 
 .active {
-	background-color: red;
+	background-color: greenyellow;
 }

@@ -1,15 +1,43 @@
-const COLLECTION = document.querySelectorAll('piano-button');
+const COLLECTION = document.querySelectorAll('.piano-button');
+const PIANO = document.getElementById('piano')
+
+const startSound = (event) => {
+	event.target.classList.add('active');
+}
+
+const stopSound = (event) => {
+	event.target.classList.remove('active');
+}
 
 
-COLLECTION.forEach((elem) => {
-	elem.addEventListener('mousedown', (event) => {
-		event.target.classList.add("active");
-		console.log('mousedown');
-	})
 
-	elem.addEventListener('mouseup', (event) => {
-		event.target.classList.remove("active");
-		console.log('mouseup');
-	})
-})
-console.log('js ok');
+const startCorrespondOver = (event) => {
+	COLLECTION.forEach(
+		(elem) => {
+			elem.addEventListener('mouseover', startSound)
+			elem.addEventListener('mouseout', stopSound)
+		}
+	)
+}
+
+const stopCorrespondOver = () => {
+	COLLECTION.forEach(
+		(elem) => {
+			elem.addEventListener('mouseover', startSound)
+			elem.addEventListener('mouseout', stopSound)
+		}
+	)
+}
+
+
+
+
+
+
+PIANO.addEventListener('mousedown', startCorrespondOver);
+PIANO.addEventListener('mousedown', stopCorrespondOver)
+
+// PIANO.addEventListener('mouseup', (event) => {
+// 	event.target.classList.remove("active");
+// 	console.log('PIANO.mouseup');
+// })
